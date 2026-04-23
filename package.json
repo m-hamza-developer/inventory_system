@@ -41,6 +41,7 @@
     "wait-on": "^9.0.5"
   },
   "build": {
+    "publish": null,
     "appId": "com.inventory.app",
     "productName": "Inventory Management System",
     "files": [
