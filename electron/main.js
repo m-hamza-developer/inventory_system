@@ -93,6 +93,8 @@ app.on('ready', () => {
 
   createWindow()
 
+  console.warn(process.versions)
+
   const tray = new Tray(getIconPath())
   tray.setToolTip('Inventory Management System')
   tray.on('click', () => {

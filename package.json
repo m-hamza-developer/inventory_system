@@ -63,7 +63,12 @@
       "target": "nsis"
     },
     "mac": {
-      "target": "dmg"
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64", "universal"]
+        }
+      ]
     },
     "linux": {
       "target": "AppImage"
