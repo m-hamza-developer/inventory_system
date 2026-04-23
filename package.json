@@ -1,0 +1,75 @@
+{
+  "name": "invertory_management_system",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Inventory Management System",
+  "author": "Your Name",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run react\" \"npm run electron\"",
+    "react": "vite",
+    "electron": "wait-on http://localhost:5173 && nodemon --watch electron --ext js,cjs --exec electron .",
+    "build": "vite build",
+    "dist": "vite build && electron-builder",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.3",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-window-state": "^5.0.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.14.1",
+    "tailwindcss": "^4.2.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "electron": "^41.2.1",
+    "electron-builder": "^26.8.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.5.0",
+    "nodemon": "^3.1.14",
+    "vite": "^8.0.9",
+    "wait-on": "^9.0.5"
+  },
+  "build": {
+    "appId": "com.inventory.app",
+    "productName": "Inventory Management System",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets",
+        "to": "assets",
+        "filter": ["**/*"]
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
